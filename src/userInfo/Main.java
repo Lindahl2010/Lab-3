@@ -24,7 +24,8 @@ public class Main {
 			count();
 		}
 		phone();
-
+		idNumber();
+		
 	}
 	
 	public static final Scanner input = new Scanner(System.in);
@@ -135,8 +136,42 @@ public class Main {
 		String phnNum;
 		System.out.println("Please Enter a number to be converted into a phone number: ");
 		phnNum = input.nextLine();		
-		System.out.println("(" + phnNum.subSequence(0,3) + ")" + phnNum.subSequence(3, 6) + "-" + phnNum.subSequence(6, 10));
-		
+		System.out.println("Conversion to phone number: (" + phnNum.subSequence(0,3) + ")" + phnNum.subSequence(3, 6) + "-" + phnNum.subSequence(6, 10));
 	}
 
+	public static void idNumber()
+	{
+		String name, address, idNum = null;
+		System.out.println("Please Enter your full name: ");
+		name = input.nextLine();
+		System.out.println("Please Enter your Street Address: ");
+		address = input.nextLine();
+		
+		if(name.isEmpty())
+		{
+			System.out.println("Please Enter your full name: ");
+			name = input.nextLine();
+		}
+		else if(address.isEmpty())
+		{
+			System.out.println("Please Enter your Street Address: ");
+			address = input.nextLine();
+		}
+		else
+		{
+			while(!name.isEmpty() && !address.isEmpty())
+			{
+				String[] initial = name.split(" ");
+				String[] hsNum = address.split(" ");
+				
+				for(int i = 0; i < initial.length; i ++)
+				{
+					idNum = initial[i].substring(0, 1).toString();
+				}
+				
+				System.out.println(idNum);
+			}
+		}
+	}
+	
 }
