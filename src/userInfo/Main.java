@@ -141,36 +141,30 @@ public class Main {
 
 	public static void idNumber()
 	{
-		String name, address, idNum = null;
-		System.out.println("Please Enter your full name: ");
-		name = input.nextLine();
+		String fname, lname;
+		int address;
+		System.out.println("Please Enter your first name: ");
+		fname = input.nextLine();
+		System.out.println("Please Enter your last name: ");
+		lname = input.nextLine();
 		System.out.println("Please Enter your Street Address: ");
-		address = input.nextLine();
+		address = input.nextInt();
 		
-		if(name.isEmpty())
+		if(fname.isEmpty())
 		{
-			System.out.println("Please Enter your full name: ");
-			name = input.nextLine();
+			System.out.println("Please Enter your first name: ");
+			fname = input.nextLine();
 		}
-		else if(address.isEmpty())
+		else if(lname.isEmpty())
 		{
-			System.out.println("Please Enter your Street Address: ");
-			address = input.nextLine();
+			System.out.println("Please Enter your last name: ");
+			lname = input.nextLine();
 		}
 		else
 		{
-			while(!name.isEmpty() && !address.isEmpty())
-			{
-				String[] initial = name.split(" ");
-				String[] hsNum = address.split(" ");
-				
-				for(int i = 0; i < initial.length; i ++)
-				{
-					idNum = initial[i].substring(0, 1).toString();
-				}
-				
-				System.out.println(idNum);
-			}
+			System.out.println("ID Number: ");
+			String initials = fname.substring(0,1) + lname.substring(0,1);
+			System.out.println(initials + address);
 		}
 	}
 	
